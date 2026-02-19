@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { loginApi } from "../http/axios"
 import Swal from "sweetalert2"
 import CardLooper from "../components/cardLooper"
+import { Outlet } from "react-router"
 
 export default function Home () {
   const [stories, setStories] = useState([])
@@ -11,7 +12,7 @@ export default function Home () {
   const [search, setSearch] = useState('')
 
   function incrementPage () {
-    let limitPerPage = 10 //has to change both in backend and frontend
+    let limitPerPage = 5 //has to change both in backend and frontend
     if (page >= Math.ceil(storyCount/limitPerPage)) {
       return null
     }
@@ -35,7 +36,7 @@ export default function Home () {
 
       const response = await loginApi({
         method: 'GET',
-        url: '/stories'
+        url: '/stories?' + query
       })
   
       setStories(response.data.data)
@@ -57,19 +58,19 @@ export default function Home () {
   return (
     <>
       <div 
-        className="flex gap-2 p-10 mt-20 min-h-screen w-screen bg-stone-50 text-slate-900"
+        className="flex gap-2 p-10 mt-20 w-screen bg-amber-50 text-slate-900"
       >
 
         <div 
-          className="flex w-3/4 outline-1 outline-neutral-300 shadow-xl"
+          className="flex flex-col w-3/4 min-h-screen outline-1 outline-neutral-200 shadow-xl bg-stone-50"
         >
 
-          <h1>Hello World</h1> {/* placeholder for div with story detail inside */}
+          <Outlet/> {/* will either output welcome screen or story detail */}
 
         </div>
 
         <div 
-          className="flex flex-col w-1/4 h-full"
+          className="flex flex-col w-1/4 h-screen bg-amber-50 gap-5"
         >
 
           <CardLooper array={stories}/>
