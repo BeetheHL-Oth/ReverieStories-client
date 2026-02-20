@@ -55,11 +55,11 @@ export default function Login () {
     
   }
   
-  function handleGoogleLoginSuccess(credentialResponse) {
+  async function handleGoogleLoginSuccess(credentialResponse) {
     console.log(credentialResponse)
 
     try {
-      const response = axios.post('https://beethehl.web.id/users/google-login', {}, {
+      const response = await axios.post('https://beethehl.web.id/users/google-login', {}, {
         headers: {
           access_token_google: credentialResponse.credential
         }
