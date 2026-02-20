@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router"
 import { loginApi } from "../http/axios"
 import Swal from "sweetalert2"
 import { GoogleLogin } from "@react-oauth/google"
+import axios from "axios"
 
 export default function Login () {
   const [user, setUser] = useState({
