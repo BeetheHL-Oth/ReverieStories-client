@@ -53,7 +53,7 @@ export const router = createBrowserRouter([
           {
             path: 'add',
             element: <AddStory/>,
-          },
+          }, 
           {
             path: ':storyId',
             element: <StoryDetails/>,

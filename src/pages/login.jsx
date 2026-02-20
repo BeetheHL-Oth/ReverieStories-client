@@ -3,6 +3,7 @@ import UserForm from "../components/userForm"
 import { Link, useNavigate } from "react-router"
 import { loginApi } from "../http/axios"
 import Swal from "sweetalert2"
+import { GoogleLogin } from "@react-oauth/google"
 
 export default function Login () {
   const [user, setUser] = useState({
@@ -50,8 +51,37 @@ export default function Login () {
       })
     }
 
+    
   }
+  
+  function handleGoogleLoginSuccess(credentialResponse) {
+    console.log(credentialResponse)
 
+    try {
+      const response = axios.post('https://beethehl.web.id/users/google-login', {}, {
+        headers: {
+          access_token_google: credentialResponse.credential
+        }
+      })
+      const access_token = response.data.access_token
+
+      localStorage.setItem('access_token', access_token)
+      Swal.fire({
+        icon: 'success',
+        title: 'Logged in with Google!',
+        text: `Welcome to Reverie!`
+      })
+      reroute('/')
+    } 
+    catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Google login failed',
+        text: error.response?.data?.message
+      })
+    }
+
+  }
   return (
     <>
       <div 
@@ -67,6 +97,10 @@ export default function Login () {
         <Link to="/register"
           className="text-white underline hover:text-blue-300"
         >dont have an account yet?</Link>
+
+        <GoogleLogin
+        onSuccess={handleGoogleLoginSuccess}
+      />
 
         </div>
 
