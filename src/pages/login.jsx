@@ -63,6 +63,7 @@ export default function Login () {
           access_token_google: credentialResponse.credential
         }
       })
+      console.log(response.data)
       const access_token = response.data.access_token
 
       localStorage.setItem('access_token', access_token)
