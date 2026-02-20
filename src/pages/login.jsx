@@ -74,6 +74,7 @@ export default function Login () {
       reroute('/')
     } 
     catch (error) {
+      console.log(error)
       Swal.fire({
         icon: 'error',
         title: 'Google login failed',
