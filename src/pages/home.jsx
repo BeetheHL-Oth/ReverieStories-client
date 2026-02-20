@@ -57,12 +57,47 @@ export default function Home () {
 
   return (
     <>
+    <div
+      className="w-full bg-amber-50 text-slate-900 flex flex-col mt-15 p-5"
+      >
+        <div className="flex w-9/10 justify-between items-center">
+          <form
+            className="pb-3 px-20 w-full"
+          >
+            <input type="text" 
+              value={search}
+              placeholder="Search Stories"
+              onChange={(e) => setSearch(e.target.value)}
+              className="w-1/2 p-2 outline-1 outline-slate-900 rounded-lg"
+            />
+
+            <input type="text" 
+              value={tag}
+              placeholder="Search by tag"
+              onChange={(e) => setTag(e.target.value)}
+              className="w-1/4 mx-20 p-2 outline-1 outline-slate-900 rounded-lg"
+            />
+
+          </form>
+            <div
+              className="flex gap-10 items-center"
+            >
+              <button onClick={decrementPage}
+                className="bg-slate-800 text-white rounded-full p-3 text-xl"
+              >{'<'}</button>
+              <p>{page}</p>
+              <button onClick={incrementPage}
+                className="bg-slate-800 text-white rounded-full p-3 text-xl"
+              >{'>'}</button>
+            </div>
+        </div>
+
       <div 
-        className="flex gap-2 p-10 mt-20 w-screen bg-amber-50 text-slate-900"
+        className="flex gap-8 px-10 w-full h-fit bg-amber-50 text-slate-900"
       >
 
         <div 
-          className="flex flex-col w-3/4 min-h-screen outline-1 outline-neutral-200 shadow-xl bg-stone-50"
+          className="flex flex-col w-3/4 h-200 outline-1 outline-neutral-200 shadow-xl bg-stone-50"
         >
 
           <Outlet/> {/* will either output welcome screen or story detail */}
@@ -70,7 +105,7 @@ export default function Home () {
         </div>
 
         <div 
-          className="flex flex-col w-1/4 h-screen bg-amber-50 gap-5"
+          className="flex flex-col w-1/4 h-200 bg-amber-50 gap-8 p-5 overflow-y-auto"
         >
 
           <CardLooper array={stories}/>
@@ -78,6 +113,7 @@ export default function Home () {
         </div>
         
       </div>
+    </div>
     </>
   )
 }
