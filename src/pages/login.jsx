@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router"
 import { loginApi } from "../http/axios"
 import Swal from "sweetalert2"
 import { GoogleLogin } from "@react-oauth/google"
+import axios from "axios"
 
 export default function Login () {
   const [user, setUser] = useState({
@@ -63,6 +64,7 @@ export default function Login () {
           access_token_google: credentialResponse.credential
         }
       })
+      console.log(response.data)
       const access_token = response.data.access_token
 
       localStorage.setItem('access_token', access_token)
