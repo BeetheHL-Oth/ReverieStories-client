@@ -6,7 +6,7 @@ export default function StoryDetails () {
   return (
     <>
       <div
-        className="w-screen h-screen mt-20 p-10 flex flex-col"
+        className="w-screen h-227 mt-15 p-10 flex flex-col"
       >
 
         <StoryCard/>

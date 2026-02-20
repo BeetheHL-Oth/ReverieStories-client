@@ -17,6 +17,7 @@ import AddTag from "../pages/addTag";
 import ChatHome from "../components/chathome";
 import AddChat from "../components/addChat";
 import Chatbot from "../components/chatbot";
+import ReadChapter from "../pages/readchapter";
 
 export const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ export const router = createBrowserRouter([
             element: <StoryCard/>
           }
         ]
+      },
+      {
+        path: ':storyId/:chapterId',
+        element: <ReadChapter/>
       },
       {
         path: 'mystories',

@@ -38,18 +38,18 @@ export default function MyStories() {
   return (
     <>
       <div
-        className="h-screen w-screen mt-20 p-10 bg-amber-50 text-slate-900 flex flexwrap flex-col gap-5"
+        className="w-screen mt-15 p-10 bg-amber-50 text-slate-900 flex flexwrap flex-col gap-5"
       >
         <Link to="/mystories/add"
           className="text-2xl bg-slate-800 text-white w-1/7 p-3 ml-3 text-center rounded-lg hover:bg-stone-50 hover:text-slate-900 outline-1 transition-all duration-300"
         >New Story</Link>
 
         <h1
-          className="text-4xl text-center mb-2 bg-sky-700 text-white rounded-t-2xl outline-1 p-3"
+          className="text-4xl text-center mb-2 bg-sky-700 text-white rounded-t-2xl outline-1 p-3 mx-10"
         >My Stories</h1>
 
         <div
-          className="flex flex-col gap-3"
+          className="flex flex-col gap-8 mx-10"
         >
           
           <CardLooper array={myStories}/>

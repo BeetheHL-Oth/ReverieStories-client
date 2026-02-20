@@ -36,17 +36,17 @@ export default function Header () {
   return (
     <>
       <div 
-        className="flex fixed top-0 right-0 left-0 bg-slate-700 text-sky-300 h-1/12 p-3 px-5 shadow-xl justify-between"
+        className="flex fixed top-0 right-0 left-0 bg-slate-700 text-sky-300 h-1/14 p-3 px-5 shadow-xl justify-between"
       >
 
         <div>
 
-          <h1 className="text-5xl"><b>Reverie Stories</b></h1>
+          <h1 className="text-4xl"><b>Reverie Stories</b></h1>
 
         </div>
 
         <div 
-          className="flex gap-3 text-2xl items-center"
+          className="flex gap-15 text-2xl items-center"
         >
 
           <Link to="/" 
